@@ -7,9 +7,8 @@ import seaborn as sns
 
 
 def load_data():
-    file = "aircrahesFullDataUpdated_2024.csv"
-    df=pd.read_csv("aircrahesFullDataUpdated_2024.csv")
-
+    file = 'aircrahesFullDataUpdated_2024.csv'
+    df = pd.read_csv(file)
     df["Country/Region"]= df["Country/Region"].str.replace("'-","unknown").str.strip()
     df.fillna("Not Available")
     df["Country/Region"]= df["Country/Region"].replace("10"," ", regex=True)
@@ -21,6 +20,7 @@ def load_data():
     df['Operator'].str.strip()
     df[['Month','Day']].astype('category')
     return df
+
 df =load_data()  
 st.title("CRASHAPP ANALYSIS")
 
